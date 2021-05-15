@@ -12,7 +12,8 @@ $result = foreach ($name in $names) {
         Description = $snippets.$name.description
     }
 }
-$md = $result | ConvertTo-MarkdownTable 
+
+$md = $result | Sort-Object Trigger | ConvertTo-MarkdownTable 
 
 if ($ToClipboard) {
     $md | clip
@@ -20,4 +21,3 @@ if ($ToClipboard) {
 }
 
 $md
-
