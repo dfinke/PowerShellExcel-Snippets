@@ -37,6 +37,6 @@ View built-in and extension snippets grouped by language in the Snippets Tree Vi
 
 ![](images/SnippetsViewer.png)
 
-### On the Marketplace
+### Snippets Viewer is in the Marketplace
 
 https://marketplace.visualstudio.com/items?itemName=RandomFractalsInc.snippets-viewer
