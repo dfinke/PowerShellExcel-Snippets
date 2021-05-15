@@ -3,8 +3,7 @@
 This extension contains code snippets for the PowerShell Excel module for the Vs Code editor.
 ## Features
 
-<!-- ![](/images/PowerShellExcelSnippetsPivotTable.gif) -->
-![](images/PowerShellExcelSnippetsPivotTable.gif )
+![](images/PowerShellExcelSnippetsPivotTable.gif)
 
 ## Snippets
 
