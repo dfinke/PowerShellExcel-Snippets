@@ -26,7 +26,3 @@ Below is a list of all available snippets and the triggers of each one.
 |ps-ExcelPassThru|Export Excel using `PassThru`|
 
 <br/>
-
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
