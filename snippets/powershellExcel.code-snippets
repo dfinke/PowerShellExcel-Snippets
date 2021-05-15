@@ -42,35 +42,47 @@
     "PowerShell Excel AutoNameRange": {
         "prefix": "ps-ExcelAutoNameRange",
         "body": [
-            "TBD: PS Excel AutoNameRange"
+            "Get-Process |\n\tSelect-Object Company, Name, Handles |",
+            "\tExport-Excel -Path \"${1:test}.xlsx\" -AutoNameRange -Show",
         ],
-        "description": "Export Excel using `AutoNameRange`"
+        "description": "Export Excel using `AutoNameRange`."
     },
     "PowerShell Excel TableName": {
         "prefix": "ps-ExcelTableName",
         "body": [
-            "TBD: PS Excel TableName"
+            "Get-Process |\n\tSelect-Object Company, Name, Handles |",
+            "\tExport-Excel -Path \"${1:test}.xlsx\" -TableName ${2:Processes} -Show",
         ],
         "description": "Export Excel using a `TableName`"
+    },
+    "PowerShell Excel Just TableName": {
+        "prefix": "ps-ExcelJustTableName",
+        "body": [
+            "Export-Excel -Path \"${1:test}.xlsx\" -TableName ${2:Processes} -Show",
+        ],
+        "description": "Export Excel just the tablename param"
     },
     "PowerShell Excel AutoSize": {
         "prefix": "ps-ExcelAutoSize",
         "body": [
-            "TBD: PS Excel AutoSize"
+            "Get-Process |\n\tSelect-Object Company, Name, Handles |",
+            "\tExport-Excel -Path \"${1:test}.xlsx\" -AutoSize -Show",
         ],
         "description": "Export Excel using `AutoSize`"
     },
     "PowerShell Excel AutoFilter": {
         "prefix": "ps-ExcelAutoFilter",
         "body": [
-            "TBD: PS Excel AutoFilter"
+            "Get-Process |\n\tSelect-Object Company, Name, Handles |",
+            "\tExport-Excel -Path \"${1:test}.xlsx\" -AutoFilter -Show",
         ],
         "description": "Export Excel using `AutoFilter`"
     },
     "PowerShell Excel OpenPackage": {
         "prefix": "ps-ExcelOpenPackage",
         "body": [
-            "TBD: PS Excel OpenPackage"
+            "\\$xlpkg = Open-ExcelPackage -Path \"${1:test}.xlsx\" # Opens the Excel file to be acted on\n",
+            "Close-ExcelPackage -ExcelPackage \\$xlpkg # make sure to close it so it saves the updates to the file"
         ],
         "description": "Use `OpenPackage` with an Excel file "
     },
@@ -84,5 +96,19 @@
             "Close-ExcelPackage \\$xlPkg",
         ],
         "description": "Export Excel using `PassThru`"
+    },
+    "PowerShell Excel Splat params": {
+        "prefix": "ps-ExcelSplat",
+        "body": [            
+            "${1:\\$xlParams} = @{",
+            "    Path       = \"${2:test.xlsx}\"",
+            "    Show       = ${3:\\$true}",
+            "    AutoSize   = ${4:\\$true}",
+            "    AutoFilter = ${5:\\$true}",
+            "    TableName  = ${6:\\$true}",
+            "}",
+            "${7:\\$data} | Export-Excel ${8:@xlParams}"
+        ],
+        "description": "Export Excel splatting params"
     },
 }
