@@ -4,7 +4,7 @@
         "body": [
             "${1:Get-Process} | Export-Excel"
         ],
-        "description": "Export A PowerShell Array to Excel File"
+        "description": "Export `Get-Process` to Excel"
     },
     "PowerShell Import Excel": {
         "prefix": "ps-ExcelImport",
@@ -28,7 +28,7 @@
         "body": [
             "TBD: PS Excel Chart"
         ],
-        "description": "Export Excel and charting"
+        "description": "Export to Excel adding a chart"
     },
     "PowerShell Excel Pivot": {
         "prefix": "ps-ExcelPivot",
@@ -37,42 +37,42 @@
             "\\$data = Get-Process |\n\tSelect-Object Company, Name, Handles",
             "\\$data |\n\tExport-Excel -Path \\$xlfileName -IncludePivotChart -PivotColumns Company -PivotData @{${2:Handles}=\"${3:Sum}\"} -Show",
         ],
-        "description": "Export Excel and Pivot Tables"
+        "description": "Export Excel and create Pivot Tables"
     },
     "PowerShell Excel AutoNameRange": {
         "prefix": "ps-ExcelAutoNameRange",
         "body": [
             "TBD: PS Excel AutoNameRange"
         ],
-        "description": "Export Excel and AutoNameRange"
+        "description": "Export Excel using `AutoNameRange`"
     },
     "PowerShell Excel TableName": {
         "prefix": "ps-ExcelTableName",
         "body": [
             "TBD: PS Excel TableName"
         ],
-        "description": "Export Excel and TableName"
+        "description": "Export Excel using a `TableName`"
     },
     "PowerShell Excel AutoSize": {
         "prefix": "ps-ExcelAutoSize",
         "body": [
             "TBD: PS Excel AutoSize"
         ],
-        "description": "Export Excel and AutoSize"
+        "description": "Export Excel using `AutoSize`"
     },
     "PowerShell Excel AutoFilter": {
         "prefix": "ps-ExcelAutoFilter",
         "body": [
             "TBD: PS Excel AutoFilter"
         ],
-        "description": "Export Excel and AutoFilter"
+        "description": "Export Excel using `AutoFilter`"
     },
     "PowerShell Excel OpenPackage": {
         "prefix": "ps-ExcelOpenPackage",
         "body": [
             "TBD: PS Excel OpenPackage"
         ],
-        "description": "Export Excel and OpenPackage"
+        "description": "Use `OpenPackage` with an Excel file "
     },
     "PowerShell Excel PassThru": {
         "prefix": "ps-ExcelPassThru",
@@ -83,6 +83,6 @@
             "\\$xlPkg",
             "Close-ExcelPackage \\$xlPkg",
         ],
-        "description": "Export Excel and use PassThru"
+        "description": "Export Excel using `PassThru`"
     },
 }
