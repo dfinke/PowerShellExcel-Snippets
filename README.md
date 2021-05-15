@@ -1,8 +1,28 @@
 # Powershell Excel Snippets
 
+This extension contains code snippets for the PowerShell Excel module for the Vs Code editor.
 ## Features
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+<!-- ![](/images/PowerShellExcelSnippetsPivotTable.gif) -->
+![](images/PowerShellExcelSnippetsPivotTable.gif )
+
+## Snippets
+
+|Trigger|Description|
+|---|---|
+|ps-ExcelExport|Export A PowerShell Array to Excel File|
+|ps-ExcelImport|Export Get-Process to Excel File|
+|ps-ExcelConditionalFormat|Export Excel apply conditional formatting|
+|ps-ExcelChart|Export Excel and charting|
+|ps-ExcelPivot|Export Excel and Pivot Tables|
+|ps-ExcelAutoNameRange|Export Excel and AutoNameRange|
+|ps-ExcelTableName|Export Excel and TableName|
+|ps-ExcelAutoSize|Export Excel and AutoSize|
+|ps-ExcelAutoFilter|Export Excel and AutoFilter|
+|ps-ExcelOpenPackage|Export Excel and OpenPackage|
+|ps-ExcelPassThru|Export Excel and use PassThru|
+
+<br/>
 
 ## Requirements
 
