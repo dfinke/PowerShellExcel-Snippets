@@ -3,9 +3,9 @@
 This extension contains code snippets for the PowerShell Excel module for the Vs Code editor.
 ## Features
 
-Using `PassThru` when creating and Excel file.
+Export `Get-Process` to Excel.
 
-![](images/PowerShellExcelSnippetsPivotTable.gif)
+![](images/PowerShellExcelSnippetsExportGetProcess.gif)
 
 ## Snippets
 

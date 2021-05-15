@@ -2,7 +2,7 @@
     "PowerShell Export Excel": {
         "prefix": "ps-ExcelExport",
         "body": [
-            "${1:Get-Process} | Export-Excel"
+            "${1:Get-Process} | Select-Object Company, Name, Handles | Export-Excel"
         ],
         "description": "Export `Get-Process` to Excel"
     },
