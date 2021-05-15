@@ -1,0 +1,86 @@
+{
+	"PowerShell Export Excel": {
+		"prefix": [
+			"ps-ExcelExport"
+		],
+		"body": [
+			"${1|Get-Process,Get-Service|} | Export-Excel"
+		],
+		"description": "Export A PowerShell Array to Excel File"
+	},
+	"PowerShell Import Excel": {
+		"prefix": [
+			"ps-ExcelImport"
+		],
+		"body": "Import-Excel -Path ${YourExcelFile} -WorksheetName ${Sheet1}",
+		"description": "Export Get-Process to Excel File"
+	},
+	"PowerShell Excel Formatting": {
+		"prefix": [
+			"ps-ExcelConditionalFormat"
+		],
+		"body": [
+			"\\$xlfileName = \"\\$env:Temp\\test.xlsx\"",
+			"Remove-Item \\$xlfileName -ErrorAction SilentlyContinue\n",
+			"\\$nct = New-ConditionalText ${stop}\n",
+			"Get-Service | ",
+			"\tSelect-Object Name, DisplayName, Status |",
+			"\tExport-Excel -Path \\$xlfileName -AutoSize -ConditionalText \\$nct -Show",
+		],
+	},
+	"PowerShell Excel Chart": {
+		"prefix": [
+			"ps-ExcelChart"
+		],
+		"body": "PS Excel Chart",
+	},
+	"PowerShell Excel Pivot": {
+		"prefix": [
+			"ps-ExcelPivot"
+		],
+		"body": [
+			"\\$xlfileName = \"test.xlsx\"",
+			"\\$data = Get-Process | Select-Object Company, Name, Handles",
+			"\\$data | Export-Excel -Path \\$xlfileName -IncludePivotChart -PivotColumns Company -PivotData @{Handles=\"Sum\"} -Show",
+		],
+	},
+	"PowerShell Excel AutoNameRange": {
+		"prefix": [
+			"ps-ExcelAutoNameRange"
+		],
+		"body": "PS Excel AutoNameRange",
+	},
+	"PowerShell Excel TableName": {
+		"prefix": [
+			"ps-ExcelTableName"
+		],
+		"body": "PS Excel TableName",
+	},
+	"PowerShell Excel AutoSize": {
+		"prefix": [
+			"ps-ExcelAutoSize"
+		],
+		"body": "PS Excel AutoSize",
+	},
+	"PowerShell Excel AutoFilter": {
+		"prefix": [
+			"ps-ExcelAutoFilter"
+		],
+		"body": "PS Excel AutoFilter",
+	},
+	"PowerShell Excel OpenPackage": {
+		"prefix": [
+			"ps-ExcelOpenPackage"
+		],
+		"body": "PS Excel OpenPackage",
+	},
+	"PowerShell Excel PassThru": {
+		"prefix": [
+			"ps-ExcelPassThru"
+		],
+		"body": [
+			"\\$xlfileName = \"test.xlsx\"",
+			"\\$xlPkg = \\$data | Export-Excel -Path \\$xlfileName -PassThru"
+		],
+	},
+}

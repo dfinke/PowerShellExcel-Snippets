@@ -1,0 +1,11 @@
+{
+    "PowerShell Export Excel": {
+        "prefix": [
+            "ps-ExcelExport"
+        ],
+        "body": [
+            "${1:Get-Process} | Export-Excel"
+        ],
+        "description": "Export A PowerShell Array to Excel File"
+    },
+}
