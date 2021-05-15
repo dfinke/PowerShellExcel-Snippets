@@ -26,3 +26,17 @@ Below is a list of all available snippets and the triggers of each one.
 |ps-ExcelPassThru|Export Excel using `PassThru`|
 
 <br/>
+
+## Snippets Viewer
+
+Also I used this great extension to make quick work of it.
+
+**Snippets Viewer ⇥ for VSCode**.
+
+View built-in and extension snippets grouped by language in the Snippets Tree View, and much more
+
+![](images/SnippetsViewer.png)
+
+### On the Marketplace
+
+https://marketplace.visualstudio.com/items?itemName=RandomFractalsInc.snippets-viewer
