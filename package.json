@@ -2,7 +2,19 @@
     "name": "powershellexcel-snippets",
     "displayName": "PowerShellExcel-Snippets",
     "description": "Snippets for the PowerShell Excel module",
-    "version": "0.0.1",
+    "version": "0.0.2",
+    "publisher": "DougFinke",
+    "license": "SEE LICENSE",
+	"icon": "images/logo.jpg",    
+    "bugs": {
+        "url": "https://github.com/dfinke/PowerShellExcel-Snippets/issues",
+        "email": "finked@hotmail.com"
+    },
+    "homepage": "https://github.com/dfinke/PowerShellExcel-Snippets/blob/master/README.md",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/dfinke/PowerShellExcel-Snippets.git"
+    },
     "engines": {
         "vscode": "^1.46.0"
     },
