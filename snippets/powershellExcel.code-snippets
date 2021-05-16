@@ -99,16 +99,35 @@
     },
     "PowerShell Excel Splat params": {
         "prefix": "ps-ExcelSplat",
-        "body": [            
+        "body": [
             "${1:\\$xlParams} = @{",
             "    Path       = \"${2:test.xlsx}\"",
-            "    Show       = ${3:\\$true}",
-            "    AutoSize   = ${4:\\$true}",
-            "    AutoFilter = ${5:\\$true}",
-            "    TableName  = ${6:\\$true}",
-            "}",
-            "${7:\\$data} | Export-Excel ${8:@xlParams}"
+            "    AutoSize   = ${3:\\$true}",
+            "    AutoFilter = ${4:\\$true}",
+            "    ClearSheet = ${4:\\$true}",
+            "    TableName  = ${5:\"SampleData\"}",
+            "    Show       = ${6:\\$true}",
+            "}\n",
+            "${TM_SELECTED_TEXT:\\$data} | Export-Excel ${7:@xlParams}",
         ],
         "description": "Export Excel splatting params"
+    },
+    "PowerShell Excel Sample Data": {
+        "prefix": "ps-ExcelSample",
+        "body": [
+            "\\$data = ConvertFrom-Csv @\"",
+            "Region,State,Units,Price",
+            "West,Texas,927,923.71",
+            "North,Tennessee,466,770.67",
+            "East,Florida,520,458.68",
+            "East,Maine,828,661.24",
+            "West,Virginia,465,053.58",
+            "North,Missouri,436,235.67",
+            "South,Kansas,214,992.47",
+            "North,North Dakota,789,640.72",
+            "South,Delaware,712,508.55",
+            "\"@",
+        ],
+        "description": "Export Excel Sample Data"
     },
 }
