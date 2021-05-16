@@ -2,7 +2,7 @@
     "name": "powershellexcel-snippets",
     "displayName": "PowerShellExcel-Snippets",
     "description": "Snippets for the PowerShell Excel module",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "publisher": "DougFinke",
     "license": "SEE LICENSE",
 	"icon": "images/logo.jpg",    

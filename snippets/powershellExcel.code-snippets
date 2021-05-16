@@ -26,7 +26,8 @@
     "PowerShell Excel Chart": {
         "prefix": "ps-ExcelChart",
         "body": [
-            "TBD: PS Excel Chart"
+            "${TM_SELECTED_TEXT:\\$data} | Export-Excel ${1:chart.xlsx} -AutoNameRange -Show `",
+            "\t-ExcelChartDefinition (New-ExcelChartDefinition -XRange ${2:Region} -YRange ${3:Units} -Title ${4:'Units Sold'} -NoLegend)"
         ],
         "description": "Export to Excel adding a chart"
     },

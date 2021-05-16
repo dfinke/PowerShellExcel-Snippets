@@ -1,9 +1,9 @@
 # Powershell Excel Snippets
 -------------------
 
-<!-- [![Version](https://vsmarketplacebadge.apphb.com/version/xabikos.JavaScriptSnippets.svg)](https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets)
-[![Installs](https://vsmarketplacebadge.apphb.com/installs/xabikos.JavaScriptSnippets.svg)](https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets)
-[![Ratings](https://vsmarketplacebadge.apphb.com/rating/xabikos.JavaScriptSnippets.svg)](https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets) -->
+[![Version](https://vsmarketplacebadge.apphb.com/version/DougFinke.powershellexcel-snippets.svg)](https://marketplace.visualstudio.com/items?itemName=DougFinke.powershellexcel-snippets)
+[![Installs](https://vsmarketplacebadge.apphb.com/installs/DougFinke.powershellexcel-snippets.svg)](https://marketplace.visualstudio.com/items?itemName=DougFinke.powershellexcel-snippets)
+[![Ratings](https://vsmarketplacebadge.apphb.com/rating/DougFinke.powershellexcel-snippets.svg)](https://marketplace.visualstudio.com/items?itemName=DougFinke.powershellexcel-snippets)
 
 This extension contains code snippets for the PowerShell Excel module for the Vs Code editor.
 ## Features
