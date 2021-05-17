@@ -2,31 +2,32 @@
     "PowerShell Export Excel": {
         "prefix": "ps-ExcelExport",
         "body": [
-            "${1:Get-Process} | Select-Object Company, Name, Handles | Export-Excel"
+            "${TM_SELECTED_TEXT:Get-Service} | Export-Excel"
         ],
         "description": "Export `Get-Process` to Excel"
     },
     "PowerShell Import Excel": {
         "prefix": "ps-ExcelImport",
-        "body": "Import-Excel -Path ${1:XLFile} -WorksheetName ${2:Sheet1}",
+        "body": [
+            // "Import-Excel -Path ${1:XLFileName} -WorksheetName ${2:Sheet1}",
+            "Import-Excel -Path ${TM_SELECTED_TEXT:test.xlsx} -WorksheetName ${2:Sheet1}",
+        ],
         "description": "Export Get-Process to Excel File"
     },
     "PowerShell Excel Formatting": {
         "prefix": "ps-ExcelConditionalFormat",
         "body": [
-            "\\$xlfileName = \"\\$env:Temp\\test.xlsx\"",
-            "Remove-Item \\$xlfileName -ErrorAction SilentlyContinue\n",
             "\\$nct = New-ConditionalText ${1:stop}\n",
             "Get-Service | ",
-            "\tSelect-Object Name, DisplayName, Status |",
-            "\tExport-Excel -Path \\$xlfileName -AutoSize -ConditionalText \\$nct -Show",
+            "\tSelect-Object Status, Name, DisplayName |",
+            "\tExport-Excel -Path ${2:test}.xlsx -AutoSize -ConditionalText \\$nct -Show",
         ],
         "description": "Export Excel apply conditional formatting"
     },
     "PowerShell Excel Chart": {
         "prefix": "ps-ExcelChart",
         "body": [
-            "${TM_SELECTED_TEXT:\\$data} | Export-Excel ${1:chart.xlsx} -AutoNameRange -Show `",
+            "${TM_SELECTED_TEXT:\\$data} | Export-Excel ${1:chart}.xlsx -AutoNameRange -Show `",
             "\t-ExcelChartDefinition (New-ExcelChartDefinition -XRange ${2:Region} -YRange ${3:Units} -Title ${4:'Units Sold'} -NoLegend)"
         ],
         "description": "Export to Excel adding a chart"
@@ -34,55 +35,47 @@
     "PowerShell Excel Pivot": {
         "prefix": "ps-ExcelPivot",
         "body": [
-            "\\$xlfileName = \"${1:test.xlsx}\"",
-            "\\$data = Get-Process |\n\tSelect-Object Company, Name, Handles",
-            "\\$data |\n\tExport-Excel -Path \\$xlfileName -IncludePivotChart -PivotColumns Company -PivotData @{${2:Handles}=\"${3:Sum}\"} -Show",
+            "${TM_SELECTED_TEXT:Get-Process | Select-Object Company, Name, Handles} |",
+            "\tExport-Excel -Path ${1:test}.xlsx -IncludePivotChart -PivotRows ${2:Company} -PivotData @{${3:Handles}=\"${4:Sum}\"} -Show",
         ],
         "description": "Export Excel and create Pivot Tables"
     },
     "PowerShell Excel AutoNameRange": {
         "prefix": "ps-ExcelAutoNameRange",
         "body": [
-            "Get-Process |\n\tSelect-Object Company, Name, Handles |",
-            "\tExport-Excel -Path \"${1:test}.xlsx\" -AutoNameRange -Show",
+            "${TM_SELECTED_TEXT:Get-Process | Select-Object Company, Name, Handles} |",
+            "\tExport-Excel -Path ${1:test}.xlsx -AutoNameRange -Show",
         ],
         "description": "Export Excel using `AutoNameRange`."
     },
     "PowerShell Excel TableName": {
         "prefix": "ps-ExcelTableName",
         "body": [
-            "Get-Process |\n\tSelect-Object Company, Name, Handles |",
-            "\tExport-Excel -Path \"${1:test}.xlsx\" -TableName ${2:Processes} -Show",
+            "${TM_SELECTED_TEXT:Get-Process | Select-Object Company, Name, Handles} |",
+            "\tExport-Excel -Path ${1:test}.xlsx -TableName ${2:Processes} -Show",
         ],
         "description": "Export Excel using a `TableName`"
-    },
-    "PowerShell Excel Just TableName": {
-        "prefix": "ps-ExcelJustTableName",
-        "body": [
-            "Export-Excel -Path \"${1:test}.xlsx\" -TableName ${2:Processes} -Show",
-        ],
-        "description": "Export Excel just the tablename param"
     },
     "PowerShell Excel AutoSize": {
         "prefix": "ps-ExcelAutoSize",
         "body": [
-            "Get-Process |\n\tSelect-Object Company, Name, Handles |",
-            "\tExport-Excel -Path \"${1:test}.xlsx\" -AutoSize -Show",
+            "${TM_SELECTED_TEXT:Get-Process | Select-Object Company, Name, Handles} |",
+            "\tExport-Excel -Path ${1:test}.xlsx -AutoSize -Show",
         ],
         "description": "Export Excel using `AutoSize`"
     },
     "PowerShell Excel AutoFilter": {
         "prefix": "ps-ExcelAutoFilter",
         "body": [
-            "Get-Process |\n\tSelect-Object Company, Name, Handles |",
-            "\tExport-Excel -Path \"${1:test}.xlsx\" -AutoFilter -Show",
+            "${TM_SELECTED_TEXT:Get-Process | Select-Object Company, Name, Handles} |",
+            "\tExport-Excel -Path ${1:test}.xlsx -AutoFilter -Show",
         ],
         "description": "Export Excel using `AutoFilter`"
     },
     "PowerShell Excel OpenPackage": {
         "prefix": "ps-ExcelOpenPackage",
         "body": [
-            "\\$xlpkg = Open-ExcelPackage -Path \"${1:test}.xlsx\" # Opens the Excel file to be acted on\n",
+            "\\$xlpkg = Open-ExcelPackage -Path ${1:test}.xlsx # Opens the Excel file to be acted on\n",
             "Close-ExcelPackage -ExcelPackage \\$xlpkg # make sure to close it so it saves the updates to the file"
         ],
         "description": "Use `OpenPackage` with an Excel file "
@@ -91,8 +84,7 @@
         "prefix": "ps-ExcelPassThru",
         "body": [
             "\\$data = Get-Process | Select-Object Company, Name, Handles",
-            "\\$xlfileName = \"${1:test.xlsx}\"",
-            "\\$xlPkg = \\$data | Export-Excel -Path \\$xlfileName -PassThru",
+            "\\$xlPkg = \\$data | Export-Excel -Path ${1:test}.xlsx -PassThru",
             "\\$xlPkg",
             "Close-ExcelPackage \\$xlPkg",
         ],
